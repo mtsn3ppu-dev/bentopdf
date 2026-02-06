@@ -94,12 +94,16 @@ const init = async () => {
         const title = toolsHeader.querySelector('h1, h2');
         const subtitle = toolsHeader.querySelector('p');
         if (title) {
-          title.textContent = 'Alat PDF Penuh Privasi';
-          title.className = 'text-4xl md:text-5xl font-bold text-white mb-3';
+          title.innerHTML =
+            'Alat PDF <span class="text-indigo-500">Penuh Privasi</span>';
+          title.className =
+            'text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight';
         }
         if (subtitle) {
-          subtitle.textContent = 'Untuk guru/tendik';
-          subtitle.className = 'text-lg text-gray-400';
+          subtitle.textContent =
+            'Untuk guru dan tenaga kependidikan MTs Negeri 3 PPU';
+          subtitle.className =
+            'text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed';
         }
       }
 

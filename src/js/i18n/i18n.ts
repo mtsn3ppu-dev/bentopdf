@@ -164,7 +164,7 @@ export const rewriteLinks = (): void => {
 
   links.forEach((link) => {
     const href = link.getAttribute('href');
-    if (!href) return;
+    if (!href || link.getAttribute('data-no-rewrite') === 'true') return;
 
     if (
       href.startsWith('http') ||
