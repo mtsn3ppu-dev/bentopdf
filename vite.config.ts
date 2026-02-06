@@ -280,7 +280,7 @@ export default defineConfig(() => {
       handlebars({
         partialDirectory: resolve(__dirname, 'src/partials'),
         context: {
-          baseUrl: (process.env.BASE_URL || '/').replace(/\/?$/, '/'),
+          baseUrl: (process.env.BASE_URL || '/').replace(/\/+$/, '') + '/',
           simpleMode: SIMPLE_MODE,
         },
       }),

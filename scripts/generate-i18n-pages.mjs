@@ -161,7 +161,11 @@ function processFileForLanguage(
       const pathWithoutBase = href.startsWith(BASE_PATH)
         ? href.slice(BASE_PATH.length)
         : href;
-      newHref = `${BASE_PATH}/${lang}${pathWithoutBase}`;
+      // Remove leading slash from pathWithoutBase to avoid double slashes
+      const cleanPath = pathWithoutBase.startsWith('/')
+        ? pathWithoutBase.slice(1)
+        : pathWithoutBase;
+      newHref = `${BASE_PATH}/${lang}/${cleanPath}`;
     } else {
       newHref = `${BASE_PATH}/${lang}/${href}`;
     }
