@@ -115,7 +115,7 @@ function processFileForLanguage(
     const link = document.createElement('link');
     link.rel = 'alternate';
     link.hreflang = l;
-    link.href = buildUrl(l === 'en' ? '' : l, pagePath);
+    link.href = buildUrl(l === 'id' ? '' : l, pagePath);
     document.head.appendChild(link);
   });
 
@@ -191,7 +191,7 @@ function updateEnglishFile(filePath, originalContent) {
     const link = document.createElement('link');
     link.rel = 'alternate';
     link.hreflang = l;
-    link.href = buildUrl(l === 'en' ? '' : l, pagePath);
+    link.href = buildUrl(l === 'id' ? '' : l, pagePath);
     document.head.appendChild(link);
   });
 
