@@ -12,21 +12,7 @@ import fs from 'fs';
 import { constants as zlibConstants } from 'zlib';
 import type { OutputBundle } from 'rollup';
 
-const SUPPORTED_LANGUAGES = [
-  'en',
-  'be',
-  'de',
-  'es',
-  'zh',
-  'zh-TW',
-  'vi',
-  'it',
-  'id',
-  'tr',
-  'fr',
-  'pt',
-  'nl',
-] as const;
+const SUPPORTED_LANGUAGES = ['id', 'en'] as const;
 const LANG_REGEX = new RegExp(
   `^/(${SUPPORTED_LANGUAGES.join('|')})(?:/(.*))?$`
 );
