@@ -27,7 +27,7 @@ const KEY_MAPPING = {
 function loadAllTranslations() {
   const translations = {};
   for (const lang of languages) {
-    if (lang === 'en') continue;
+    if (lang === 'id') continue;
     const commonPath = path.join(LOCALES_DIR, `${lang}/common.json`);
     const toolsPath = path.join(LOCALES_DIR, `${lang}/tools.json`);
     translations[lang] = {
@@ -176,7 +176,7 @@ function processFileForLanguage(
   fs.writeFileSync(path.join(langDir, file), result);
 }
 
-function updateEnglishFile(filePath, originalContent) {
+function updateDefaultFile(filePath, originalContent) {
   const filenameNoExt = path.basename(filePath, '.html');
   const dom = new JSDOM(originalContent);
   const document = dom.window.document;
@@ -229,7 +229,7 @@ async function generateI18nPages() {
   console.log(`   Processing ${htmlFiles.length} HTML files...`);
 
   for (const lang of languages) {
-    if (lang === 'en') continue;
+    if (lang === 'id') continue;
     const langDir = path.join(DIST_DIR, lang);
     if (!fs.existsSync(langDir)) {
       fs.mkdirSync(langDir, { recursive: true });
@@ -244,7 +244,7 @@ async function generateI18nPages() {
     const originalContent = fs.readFileSync(filePath, 'utf-8');
 
     for (const lang of languages) {
-      if (lang === 'en') continue;
+      if (lang === 'id') continue;
 
       const langDir = path.join(DIST_DIR, lang);
 
@@ -262,7 +262,7 @@ async function generateI18nPages() {
       }
     }
 
-    updateEnglishFile(filePath, originalContent);
+    updateDefaultFile(filePath, originalContent);
   }
 
   console.log('✅ i18n pages generated successfully!');
