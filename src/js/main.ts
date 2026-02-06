@@ -27,6 +27,14 @@ const init = async () => {
   ).toString();
   if (__SIMPLE_MODE__) {
     const hideBrandingSections = () => {
+      // Only hide branding on the homepage
+      if (
+        window.location.pathname !== '/' &&
+        !window.location.pathname.endsWith('index.html')
+      ) {
+        return;
+      }
+
       const heroSection = document.getElementById('hero-section');
       if (heroSection) {
         heroSection.style.display = 'none';
@@ -68,13 +76,11 @@ const init = async () => {
         supportSection.style.display = 'none';
       }
 
-      // Hide "Used by companies" section
-      const usedBySection = document.querySelector(
-        '.hide-section'
-      ) as HTMLElement;
-      if (usedBySection) {
-        usedBySection.style.display = 'none';
-      }
+      // Hide all branding sections (donation, Used by, rewards etc)
+      const brandingSections = document.querySelectorAll('.hide-section');
+      brandingSections.forEach((section) => {
+        (section as HTMLElement).style.display = 'none';
+      });
 
       const sectionDividers = document.querySelectorAll('.section-divider');
       sectionDividers.forEach((divider) => {
@@ -85,21 +91,21 @@ const init = async () => {
 
       const toolsHeader = document.getElementById('tools-header');
       if (toolsHeader) {
-        const title = toolsHeader.querySelector('h2');
+        const title = toolsHeader.querySelector('h1, h2');
         const subtitle = toolsHeader.querySelector('p');
         if (title) {
-          title.textContent = 'PDF Tools';
+          title.textContent = 'Alat PDF Penuh Privasi';
           title.className = 'text-4xl md:text-5xl font-bold text-white mb-3';
         }
         if (subtitle) {
-          subtitle.textContent = 'Select a tool to get started';
+          subtitle.textContent = 'Untuk guru/tendik';
           subtitle.className = 'text-lg text-gray-400';
         }
       }
 
       const app = document.getElementById('app');
       if (app) {
-        app.style.paddingTop = '1rem';
+        app.style.paddingTop = '2rem';
       }
     };
 

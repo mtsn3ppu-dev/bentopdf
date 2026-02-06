@@ -3,16 +3,26 @@
   data-simple-nav="true"
 >
   <div class="container mx-auto px-4">
-    <div class="flex justify-start items-center h-16">
+    <div class="flex justify-between items-center h-16">
       <div class="flex-shrink-0 flex items-center cursor-pointer">
         <img
-          src="{{baseUrl}}images/favicon-no-bg.svg"
-          alt="Bento PDF Logo"
-          class="h-8 w-8"
+          src="{{baseUrl}}images/logo-sekolah.webp"
+          alt="MTsN 3 PPU Logo"
+          class="h-10 w-10 object-contain"
         />
         <span class="text-white font-bold text-xl ml-2">
           <a href="{{baseUrl}}">BentoPDF</a>
         </span>
+      </div>
+
+      <!-- Right Side Links -->
+      <div class="flex items-center">
+        <a
+          href="{{baseUrl}}about-new.html"
+          class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all"
+        >
+          About
+        </a>
       </div>
     </div>
   </div>

@@ -108,7 +108,9 @@ function createLanguageMiddleware(isDev: boolean): Connect.NextHandleFunction {
 
       if (rest === '' || rest === '/') {
         if (isDev) {
-          req.url = '/index.html' + (queryString ? `?${queryString}` : '');
+          req.url =
+            (SIMPLE_MODE ? '/simple-index.html' : '/index.html') +
+            (queryString ? `?${queryString}` : '');
         } else {
           const langIndexPath = resolve(__dirname, 'dist', lang, 'index.html');
           if (fs.existsSync(langIndexPath)) {
@@ -218,7 +220,7 @@ function flattenPagesPlugin(): Plugin {
           delete bundle[fileName];
         }
       }
-      if (process.env.SIMPLE_MODE === 'true' && bundle['simple-index.html']) {
+      if (SIMPLE_MODE && bundle['simple-index.html']) {
         bundle['index.html'] = bundle['simple-index.html'];
         bundle['index.html'].fileName = 'index.html';
         delete bundle['simple-index.html'];
@@ -226,6 +228,8 @@ function flattenPagesPlugin(): Plugin {
     },
   };
 }
+
+const SIMPLE_MODE = process.env.SIMPLE_MODE !== 'false';
 
 function rewriteHtmlPathsPlugin(): Plugin {
   const baseUrl = process.env.BASE_URL || '/';
@@ -291,7 +295,7 @@ export default defineConfig(() => {
         partialDirectory: resolve(__dirname, 'src/partials'),
         context: {
           baseUrl: (process.env.BASE_URL || '/').replace(/\/?$/, '/'),
-          simpleMode: process.env.SIMPLE_MODE === 'true',
+          simpleMode: SIMPLE_MODE,
         },
       }),
       languageRouterPlugin(),
@@ -332,7 +336,7 @@ export default defineConfig(() => {
       }),
     ],
     define: {
-      __SIMPLE_MODE__: JSON.stringify(process.env.SIMPLE_MODE === 'true'),
+      __SIMPLE_MODE__: JSON.stringify(SIMPLE_MODE),
     },
     resolve: {
       alias: {
@@ -361,11 +365,11 @@ export default defineConfig(() => {
     build: {
       rollupOptions: {
         input: {
-          main:
-            process.env.SIMPLE_MODE === 'true'
-              ? resolve(__dirname, 'simple-index.html')
-              : resolve(__dirname, 'index.html'),
+          main: SIMPLE_MODE
+            ? resolve(__dirname, 'simple-index.html')
+            : resolve(__dirname, 'index.html'),
           about: resolve(__dirname, 'about.html'),
+          'about-new': resolve(__dirname, 'about-new.html'),
           contact: resolve(__dirname, 'contact.html'),
           faq: resolve(__dirname, 'faq.html'),
           privacy: resolve(__dirname, 'privacy.html'),

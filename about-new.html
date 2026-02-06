@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - BentoPDF MTsN 3 PPU</title>
+    <link href="/src/css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  </head>
+
+  <body class="antialiased bg-gray-900 text-gray-300">
+    {{> navbar }}
+
+    <div id="app" class="min-h-screen container mx-auto p-4 md:p-8">
+      <section class="max-w-4xl mx-auto py-16 md:py-24">
+        <!-- Header Section -->
+        <div class="text-center mb-16 animate-fade-in">
+          <h1
+            class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+          >
+            Tentang <span class="text-indigo-500">BentoPDF</span>
+          </h1>
+          <p
+            class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
+          >
+            Solusi alat PDF penuh privasi yang dikembangkan khusus untuk Guru &
+            Tenaga Kependidikan MTsN 3 PPU.
+          </p>
+        </div>
+
+        <!-- Credits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <!-- Original Source -->
+          <div
+            class="group bg-gray-800 p-8 rounded-3xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 shadow-xl"
+          >
+            <div
+              class="w-14 h-14 bg-gray-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i data-lucide="code" class="text-indigo-400 w-8 h-8"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-white mb-4">Original Source</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed">
+              Proyek ini berbasis pada aplikasi open-source
+              <strong>BentoPDF</strong> yang menyediakan berbagai alat PDF
+              secara client-side.
+            </p>
+            <a
+              href="https://github.com/alam00000/bentopdf/"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-semibold border border-indigo-500/30 hover:border-indigo-500 px-5 py-2.5 rounded-xl transition-all"
+            >
+              <i data-lucide="github" class="w-5 h-5"></i>
+              Repo Original
+            </a>
+          </div>
+
+          <!-- Custom Fork -->
+          <div
+            class="group bg-gray-800 p-8 rounded-3xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 shadow-xl"
+          >
+            <div
+              class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i data-lucide="git-fork" class="text-indigo-400 w-8 h-8"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-white mb-4">Custom Fork</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed">
+              Versi ini telah dimodifikasi (fork) untuk optimalisasi penggunaan
+              di lingkungan <strong>MTsN 3 PPU</strong>.
+            </p>
+            <a
+              href="https://github.com/mtsn3ppu-dev/bentopdf"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-semibold border border-indigo-500/30 hover:border-indigo-500 px-5 py-2.5 rounded-xl transition-all"
+            >
+              <i data-lucide="git-branch" class="w-5 h-5"></i>
+              Lihat Repo Fork
+            </a>
+          </div>
+        </div>
+
+        <!-- Developer Profiles -->
+        <div
+          class="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-3xl p-8 md:p-12 border border-indigo-500/30 text-center shadow-2xl relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 -mb-8 -ml-8 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"
+          ></div>
+
+          <div class="relative">
+            <div
+              class="w-24 h-24 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl ring-4 ring-indigo-500/20"
+            >
+              <i data-lucide="user" class="text-white w-12 h-12"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-3">
+              Developed by Henda
+            </h2>
+            <p
+              class="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed"
+            >
+              Pengembang sekaligus guru di MTs Negeri 3 Penajam Paser Utara.
+            </p>
+            <a
+              href="https://linkedin.com/in/mhendaa"
+              target="_blank"
+              class="inline-flex items-center gap-3 bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-2xl font-bold text-lg transition-all transform hover:scale-105 shadow-xl hover:shadow-indigo-500/20"
+            >
+              <i data-lucide="linkedin" class="w-6 h-6 text-indigo-600"></i>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    {{> footer }}
+
+    <script type="module" src="src/js/utils/lucide-init.ts"></script>
+    <script type="module" src="src/version.ts"></script>
+    <script type="module" src="src/js/main.ts"></script>
+    <script type="module" src="src/js/mobileMenu.ts"></script>
+  </body>
+</html>
