@@ -274,7 +274,7 @@ export default defineConfig(() => {
   ];
 
   return {
-    base: (process.env.BASE_URL || '/').replace(/\/?$/, '/'),
+    base: (process.env.BASE_URL || '/').replace(/\/+$/, '') + '/',
     plugins: [
       // basicSsl(),
       handlebars({
